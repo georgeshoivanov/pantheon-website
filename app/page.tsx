@@ -1,44 +1,39 @@
 import Link from "next/link";
+import { Container } from "@/components/Container";
 
 const features = [
-  {
-    title: "Training sessions",
-    desc: "Structured, high-energy sessions for different levels with clear progression.",
-  },
-  {
-    title: "Community",
-    desc: "A positive, competitive environment that keeps you consistent and improving.",
-  },
-  {
-    title: "Camps & tournaments",
-    desc: "Seasonal events built to accelerate learning and bring the community together.",
-  },
+  { title: "Training sessions", desc: "Coached sessions with clear progression across levels." },
+  { title: "Community", desc: "A competitive, supportive environment that keeps you consistent." },
+  { title: "Events", desc: "Camps & tournaments that accelerate learning and build culture." },
 ];
 
 export default function HomePage() {
   return (
     <main>
-      {/* HERO */}
-      <section className="border-b bg-gradient-to-b from-zinc-950 to-zinc-900 text-white">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="max-w-2xl">
+      <section className="relative overflow-hidden border-b bg-zinc-950 text-white">
+        {/* background blobs */}
+        <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+
+        <Container>
+          <div className="py-16">
             <p className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-white/80">
               London-based volleyball club
             </p>
 
-            <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
-              Pantheon Volleyball
+            <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+              Train. Compete. Build your game with Pantheon.
             </h1>
 
-            <p className="mt-4 text-lg leading-relaxed text-white/80">
-              Training sessions, camps, tournaments and a community for athletes
-              who want to improve and compete — from beginner to advanced.
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/75">
+              Sessions, camps, tournaments and a community for athletes who want to improve —
+              from beginner to advanced. Bookings are hosted on Sportas.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/sessions"
-                className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 shadow-sm hover:opacity-90"
+                className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
               >
                 View sessions
               </Link>
@@ -48,101 +43,72 @@ export default function HomePage() {
               >
                 About Pantheon
               </Link>
-              <Link
-                href="/contact"
-                className="rounded-xl border border-white/20 bg-transparent px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
-              >
-                Contact
-              </Link>
             </div>
 
-            {/* Social proof / quick stats */}
             <div className="mt-10 grid gap-3 sm:grid-cols-3">
-              <Stat label="Weekly sessions" value="Multiple" />
               <Stat label="Levels" value="Beginner → Advanced" />
-              <Stat label="Bookings" value="Hosted on Sportas" />
+              <Stat label="Locations" value="Across London" />
+              <Stat label="Booking" value="Via Sportas" />
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* CONTENT */}
-      <section className="mx-auto max-w-6xl px-6 py-14">
-        <div className="grid gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-1">
-            <h2 className="text-2xl font-bold tracking-tight">
-              What we do
-            </h2>
-            <p className="mt-3 text-gray-600">
-              Pantheon runs coached sessions and events designed to help you
-              improve faster — with clear standards, accountability, and a
-              strong community culture.
-            </p>
+      <section className="bg-gray-50">
+        <Container>
+          <div className="py-14">
+            <div className="grid gap-6 lg:grid-cols-3">
+              <div>
+                <h2 className="text-2xl font-bold tracking-tight">What we do</h2>
+                <p className="mt-3 text-gray-600">
+                  We run high-quality coaching and events designed to help you improve faster —
+                  with standards, accountability, and a strong community culture.
+                </p>
 
-            <div className="mt-6 rounded-2xl border bg-white p-5">
-              <p className="text-sm font-semibold">New here?</p>
-              <p className="mt-1 text-sm text-gray-600">
-                Start with our Sessions page and pick a level that matches you.
-              </p>
-              <Link
-                href="/sessions"
-                className="mt-4 inline-flex rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
-              >
-                Find a session
-              </Link>
-            </div>
-          </div>
-
-          <div className="grid gap-4 lg:col-span-2 sm:grid-cols-2">
-            {features.map((f) => (
-              <div key={f.title} className="rounded-2xl border bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-semibold">{f.title}</h3>
-                <p className="mt-2 text-gray-600">{f.desc}</p>
+                <div className="mt-6 rounded-2xl border bg-white p-5">
+                  <p className="text-sm font-semibold">New here?</p>
+                  <p className="mt-1 text-sm text-gray-600">
+                    Start on Sessions. Pick your level, and book in under a minute.
+                  </p>
+                  <Link
+                    href="/sessions"
+                    className="mt-4 inline-flex rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+                  >
+                    Find a session
+                  </Link>
+                </div>
               </div>
-            ))}
 
-            <div className="rounded-2xl border bg-zinc-950 p-6 text-white sm:col-span-2">
-              <h3 className="text-lg font-semibold">Ready to train?</h3>
-              <p className="mt-2 text-white/80">
-                View sessions and book on Sportas in under a minute.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <Link
-                  href="/sessions"
-                  className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-zinc-950 hover:opacity-90"
-                >
-                  View sessions
-                </Link>
-                <Link
-                  href="/contact"
-                  className="rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
-                >
-                  Ask a question
-                </Link>
+              <div className="grid gap-4 lg:col-span-2 sm:grid-cols-2">
+                {features.map((f) => (
+                  <div key={f.title} className="rounded-2xl border bg-white p-6 shadow-sm">
+                    <h3 className="text-lg font-semibold">{f.title}</h3>
+                    <p className="mt-2 text-gray-600">{f.desc}</p>
+                  </div>
+                ))}
+
+                <div className="rounded-2xl border bg-zinc-950 p-6 text-white sm:col-span-2">
+                  <h3 className="text-lg font-semibold">Ready to train?</h3>
+                  <p className="mt-2 text-white/80">View sessions and book via Sportas.</p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <Link
+                      href="/sessions"
+                      className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-zinc-950 hover:opacity-90"
+                    >
+                      View sessions
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
+                    >
+                      Ask a question
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* FOOTER STRIP */}
-      <section className="border-t bg-gray-50">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-gray-600">
-            © {new Date().getFullYear()} Pantheon Volleyball Club
-          </p>
-          <div className="flex gap-4 text-sm">
-            <Link className="text-gray-700 hover:underline" href="/sessions">
-              Sessions
-            </Link>
-            <Link className="text-gray-700 hover:underline" href="/about">
-              About
-            </Link>
-            <Link className="text-gray-700 hover:underline" href="/contact">
-              Contact
-            </Link>
-          </div>
-        </div>
+        </Container>
       </section>
     </main>
   );
@@ -156,4 +122,3 @@ function Stat({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
-
