@@ -10,7 +10,7 @@ const links = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -31,7 +31,7 @@ export function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm text-gray-700 hover:text-black"
+              className="text-sm font-medium text-ink/80 hover:text-ink"
             >
               {l.label}
             </Link>
@@ -40,7 +40,7 @@ export function Navbar() {
 
         <Link
           href="/sessions"
-          className="rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+          className="rounded-xl bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
         >
           Book
         </Link>

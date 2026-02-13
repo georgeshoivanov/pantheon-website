@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import Image from "next/image";
+import { Button } from "@/components/Button"
 
 const features = [
   { title: "Training sessions", desc: "Coached sessions with clear progression across levels." },
@@ -45,19 +46,12 @@ export default function HomePage() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/sessions"
-                  className="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-black hover:opacity-90"
-                >
+                <Button href="/sessions">
                   View sessions
-                </Link>
-
-                <Link
-                  href="/about"
-                  className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20"
-                >
+                </Button>
+                <Button variant="outline" href="/about">
                   About Pantheon
-                </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -83,7 +77,7 @@ export default function HomePage() {
                   </p>
                   <Link
                     href="/sessions"
-                    className="mt-4 inline-flex rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+                    className="mt-4 inline-flex rounded-xl bg-brand px-5 py-2 text-sm font-semibold text-white hover:bg-brand-dark transition-colors"
                   >
                     Find a session
                   </Link>
