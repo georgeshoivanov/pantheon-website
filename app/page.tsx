@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import Image from "next/image";
 
 const features = [
   { title: "Training sessions", desc: "Coached sessions with clear progression across levels." },
@@ -10,49 +11,59 @@ const features = [
 export default function HomePage() {
   return (
     <main>
-      <section className="relative overflow-hidden border-b bg-zinc-950 text-white">
-        {/* background blobs */}
-        <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+      <section className="relative h-[80vh] min-h-[520px] overflow-hidden text-white">
+        {/* Background Image */}
+        <Image
+          src="/hero.jpg"
+          alt="Pantheon Volleyball"
+          fill
+          priority
+          quality={100}
+          sizes="100vw"
+          className="object-cover object-center"
+        />
 
-        <Container>
-          <div className="py-16">
-            <p className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-white/80">
-              London-based volleyball club
-            </p>
 
-            <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
-              Train. Compete. Build your game with Pantheon.
-            </h1>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60" />
 
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/75">
-              Sessions, camps, tournaments and a community for athletes who want to improve —
-              from beginner to advanced. Bookings are hosted on Sportas.
-            </p>
+        {/* Content */}
+        <div className="relative z-10 flex h-full items-center">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="max-w-2xl">
+              <p className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm text-white/80">
+                London-based volleyball club
+              </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/sessions"
-                className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
-              >
-                View sessions
-              </Link>
-              <Link
-                href="/about"
-                className="rounded-xl border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
-              >
-                About Pantheon
-              </Link>
-            </div>
+              <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
+                Train. Compete. Build your game with Pantheon.
+              </h1>
 
-            <div className="mt-10 grid gap-3 sm:grid-cols-3">
-              <Stat label="Levels" value="Beginner → Advanced" />
-              <Stat label="Locations" value="Across London" />
-              <Stat label="Booking" value="Via Sportas" />
+              <p className="mt-4 text-lg text-white/85">
+                Structured training sessions, camps and tournaments for athletes who
+                want to improve — from beginner to advanced.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/sessions"
+                  className="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-black hover:opacity-90"
+                >
+                  View sessions
+                </Link>
+
+                <Link
+                  href="/about"
+                  className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20"
+                >
+                  About Pantheon
+                </Link>
+              </div>
             </div>
           </div>
-        </Container>
+        </div>
       </section>
+
 
       <section className="bg-gray-50">
         <Container>
