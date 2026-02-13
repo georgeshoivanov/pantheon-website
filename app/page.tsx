@@ -11,10 +11,10 @@ const features = [
 export default function HomePage() {
   return (
     <main>
-      <section className="relative h-[80vh] min-h-[520px] overflow-hidden text-white">
+      <section className="relative h-[60vh] min-h-[520px] overflow-hidden text-white">
         {/* Background Image */}
         <Image
-          src="/hero.jpg"
+          src="/LVA W image.webp"
           alt="Pantheon Volleyball"
           fill
           priority
