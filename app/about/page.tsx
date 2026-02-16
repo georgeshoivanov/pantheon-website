@@ -1,117 +1,287 @@
-import { Page } from "@/components/Page";
+import Image from "next/image";
 import { Button } from "@/components/Button";
-import { PhotoGrid } from "@/components/PhotoGrid";
-
-const aboutPhotos = [
-  { src: "/photos/about/team.jpg", alt: "Pantheon team" },
-  { src: "/photos/about/training.jpg", alt: "Training session" },
-  { src: "/photos/about/tournament.jpg", alt: "Tournament day" },
-];
 
 export default function AboutPage() {
   return (
-    <Page
-      title="About Pantheon"
-      subtitle="Pantheon Volleyball is a London-based club built around high standards, community, and real improvement."
-    >
-      {/* Background */}
-      <section className="grid gap-8 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-4 text-ink/80">
-          <h2 className="text-xl font-bold text-ink">Our story</h2>
-          <p>
-            Pantheon started with a simple goal: create a training environment in London that
-            is structured, competitive, and welcoming — where athletes can improve quickly and
-            enjoy the process.
-          </p>
-          <p>
-            We run coached sessions, games nights, and events that bring the community together.
-            Our focus is progression: clear session standards, high-quality reps, and a culture
-            that rewards consistency.
-          </p>
+    <main>
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="relative h-[70vh] min-h-[520px]">
+          <Image
+            src="/photos/about/hero.jpg"
+            alt="Pantheon Volleyball"
+            fill
+            priority
+            quality={70}
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* overlay */}
+          <div className="absolute inset-0 bg-ink/55" />
+          <div className="absolute inset-0">
+            <div className="mx-auto flex h-full max-w-6xl items-end px-6 pb-12">
+              <div className="max-w-3xl">
+                <p className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm font-semibold text-white/90">
+                  About Pantheon
+                </p>
+                <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                  Raising the level of volleyball in London
+                </h1>
+                <p className="mt-4 text-lg text-white/85">
+                  Through coaching that’s accessible, personal, and genuinely focused on player
+                  development. We want athletes to improve faster, enjoy the process, and feel
+                  part of a strong community.
+                </p>
 
-          <h3 className="mt-6 text-lg font-semibold text-ink">What we value</h3>
-          <ul className="mt-2 list-disc space-y-2 pl-5">
-            <li><span className="font-semibold text-ink">Quality:</span> reps that translate into matches.</li>
-            <li><span className="font-semibold text-ink">Community:</span> supportive, respectful, competitive.</li>
-            <li><span className="font-semibold text-ink">Progression:</span> clear levels and next steps.</li>
-          </ul>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <Button href="/sessions" size="lg">
+                    View sessions
+                  </Button>
+                  <Button href="/contact" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                    Enquire
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Quick stats / highlights */}
-        <div className="rounded-2xl border border-ink/10 bg-surface-alt p-6">
-          <div className="text-sm font-semibold text-ink">Highlights</div>
-          <div className="mt-4 grid gap-3">
-            <Highlight label="Weekly sessions" value="7+" />
-            <Highlight label="Session types" value="Coaching • Games • Squad" />
-            <Highlight label="Booking" value="Via Sportas" />
+      {/* STORY + IMAGE */}
+      <section className="bg-white">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 className="text-2xl font-bold text-ink">Who we are</h2>
+            <p className="mt-4 text-ink/70">
+              Pantheon is a London-based volleyball club built around high standards, community,
+              and real improvement. We run coached sessions, games, camps and tournaments designed
+              to help athletes progress — with structure, feedback, and accountability.
+            </p>
+            <p className="mt-4 text-ink/70">
+              Our sessions are designed to be accessible without sacrificing quality: clear levels,
+              purposeful reps, and coaching that meets you where you are.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Button href="/training" variant="outline">
+                Training levels
+              </Button>
+              <Button href="/sessions">Book via Sportas</Button>
+            </div>
           </div>
 
-          <div className="mt-6 flex flex-col gap-3">
-            <Button href="/sessions">View sessions</Button>
-            <Button href="/contact" variant="outline">Enquire</Button>
+          <ImagePanel
+            src="/photos/about/training-1.jpg"
+            alt="Pantheon training"
+            caption="High-quality reps, clear focus, and coaching that translates to matches."
+          />
+        </div>
+      </section>
+
+      {/* BIG IMAGE BREAK */}
+      <FullBleedImage
+        src="/photos/about/events.jpg"
+        alt="Pantheon event"
+        eyebrow="Community & events"
+        title="Camps, tournaments, and a culture people want to be part of"
+        body="We build moments that keep the community strong — and sessions that keep players improving."
+      />
+
+      {/* VALUES + IMAGE */}
+      <section className="bg-surface-alt">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 lg:grid-cols-2 lg:items-center">
+          <ImagePanel
+            src="/photos/about/training-2.jpg"
+            alt="Pantheon coaching"
+            caption="Accessible doesn’t mean casual — standards matter."
+          />
+
+          <div>
+            <h2 className="text-2xl font-bold text-ink">What we value</h2>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <ValueCard title="Accessible">
+                Clear levels and welcoming sessions that meet you where you are.
+              </ValueCard>
+              <ValueCard title="Personal coaching">
+                Feedback and progression built into the experience.
+              </ValueCard>
+              <ValueCard title="Standards">
+                Training that respects your time: quality reps, purpose, structure.
+              </ValueCard>
+              <ValueCard title="Community">
+                Competitive, supportive, and consistent — the best environment to grow.
+              </ValueCard>
+            </div>
+
+            <div className="mt-8">
+              <Button href="/sessions" size="lg">
+                View sessions
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Successes */}
-      <section className="mt-12">
-        <h2 className="text-xl font-bold text-ink">Successes so far</h2>
-        <p className="mt-2 text-ink/70">
-          A few milestones we’re proud of (we’ll keep this updated as the club grows).
-        </p>
+      {/* FOUNDERS */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <h2 className="text-2xl font-bold text-ink">Founders</h2>
+          <p className="mt-2 text-ink/70">
+            Pantheon is led by coaches who care about standards, progression, and building an environment
+            players want to return to every week.
+          </p>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <Card title="Growing weekly programme">
-            Consistent weekly sessions across coaching, games, and squad training.
-          </Card>
-          <Card title="Events & community">
-            Camps / tournaments that bring the community together and accelerate learning.
-          </Card>
-          <Card title="Player development">
-            Clear level structure, accountability, and session standards that help athletes progress.
-          </Card>
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            <Founder
+              name="George Ivanov"
+              role="Co-founder • Head Coach"
+              image="/photos/founders/george.jpg"
+              bio="Focused on building a high-quality training environment that translates into match performance. Passionate about raising the level of volleyball in London through structured, intentional coaching."
+            />
+            <Founder
+              name="Chester Tang"
+              role="Co-founder • Coach"
+              image="/photos/founders/chester.jpg"
+              bio="Committed to making coaching accessible and personal. Focused on fundamentals, confidence, and creating a clear path for players to progress through consistent standards."
+            />
+          </div>
         </div>
       </section>
 
-      {/* Photos */}
-      <section className="mt-12">
-        <h2 className="text-xl font-bold text-ink">Gallery</h2>
-        <p className="mt-2 text-ink/70">
-          A snapshot of training, games, and events.
-        </p>
-        <div className="mt-6">
-          <PhotoGrid images={aboutPhotos} />
-        </div>
-      </section>
+      {/* GALLERY (big tiles) */}
+      <section className="bg-surface-alt">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <h2 className="text-2xl font-bold text-ink">Gallery</h2>
+          <p className="mt-2 text-ink/70">Training, games, and events.</p>
 
-      {/* CTA */}
-      <section className="mt-12 rounded-3xl border border-ink/10 bg-cream/40 p-8">
-        <h2 className="text-2xl font-bold text-ink">Want to join a session?</h2>
-        <p className="mt-2 text-ink/70">
-          View upcoming sessions and book securely via Sportas.
-        </p>
-        <div className="mt-5">
-          <Button href="/sessions" size="lg">View sessions</Button>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <GalleryTile src="/photos/about/hero.jpg" alt="Pantheon" className="md:col-span-2 md:row-span-2" />
+            <GalleryTile src="/photos/about/training-1.jpg" alt="Training" />
+            <GalleryTile src="/photos/about/training-2.jpg" alt="Coaching" />
+            <GalleryTile src="/photos/about/events.jpg" alt="Event" className="md:col-span-2" />
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-ink/10 bg-white p-8">
+            <h3 className="text-xl font-bold text-ink">Want to train with us?</h3>
+            <p className="mt-2 text-ink/70">
+              View the weekly programme and book securely via Sportas.
+            </p>
+            <div className="mt-5">
+              <Button href="/sessions" size="lg">View sessions</Button>
+            </div>
+          </div>
         </div>
       </section>
-    </Page>
+    </main>
   );
 }
 
-function Highlight({ label, value }: { label: string; value: string }) {
+function ImagePanel({ src, alt, caption }: { src: string; alt: string; caption: string }) {
   return (
-    <div className="rounded-2xl border border-ink/10 bg-white p-4">
-      <div className="text-xs text-ink/60">{label}</div>
-      <div className="mt-1 text-sm font-semibold text-ink">{value}</div>
+    <div className="overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-sm">
+      <div className="relative aspect-[4/3]">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          quality={70}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="p-5 text-sm text-ink/70">{caption}</div>
     </div>
   );
 }
 
-function Card({ title, children }: { title: string; children: React.ReactNode }) {
+function FullBleedImage({
+  src,
+  alt,
+  eyebrow,
+  title,
+  body,
+}: {
+  src: string;
+  alt: string;
+  eyebrow: string;
+  title: string;
+  body: string;
+}) {
+  return (
+    <section className="relative">
+      <div className="relative h-[520px]">
+        <Image src={src} alt={alt} fill quality={70} sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-ink/55" />
+        <div className="absolute inset-0">
+          <div className="mx-auto flex h-full max-w-6xl items-end px-6 pb-12">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold text-cream/90">{eyebrow}</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">{title}</h2>
+              <p className="mt-4 text-lg text-white/85">{body}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ValueCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="rounded-2xl border border-ink/10 bg-white p-6 shadow-sm">
-      <h3 className="text-lg font-semibold text-ink">{title}</h3>
+      <div className="font-semibold text-ink">{title}</div>
       <p className="mt-2 text-ink/70">{children}</p>
+    </div>
+  );
+}
+
+function Founder({
+  name,
+  role,
+  image,
+  bio,
+}: {
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+}) {
+  return (
+    <div className="overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-sm">
+      <div className="relative aspect-[16/10]">
+        <Image src={image} alt={name} fill quality={70} sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+      </div>
+      <div className="p-6">
+        <div className="text-lg font-semibold text-ink">{name}</div>
+        <div className="text-sm text-ink/60">{role}</div>
+        <p className="mt-3 text-ink/70">{bio}</p>
+      </div>
+    </div>
+  );
+}
+
+function GalleryTile({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
+  return (
+    <div className={`relative overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-sm ${className ?? ""}`}>
+      <div className="relative h-full min-h-[220px]">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          quality={70}
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover"
+        />
+      </div>
     </div>
   );
 }
