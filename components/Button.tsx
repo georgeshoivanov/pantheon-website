@@ -1,46 +1,62 @@
 import Link from "next/link";
-import { cn } from "@/lib/cn";
 import type { ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
-type ButtonProps = {
+type Variants = "primary" | "secondary" | "outline";
+type Sizes = "sm" | "md" | "lg";
+
+type CommonProps = {
   children: ReactNode;
-  href?: string;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: Variants;
+  size?: Sizes;
   className?: string;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+};
 
-export function Button({
-  children,
-  href,
-  variant = "primary",
-  className,
-  ...props
-}: ButtonProps) {
-  const baseStyles =
-    "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-colors";
-
-  const variants = {
-    primary:
-      "bg-brand text-white hover:bg-brand-dark",
-    secondary:
-      "bg-ink text-white hover:opacity-90",
-    outline:
-      "border border-ink/20 bg-white text-ink hover:bg-surface-alt",
+type ButtonAsButton = CommonProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    href?: never;
   };
 
-  const styles = cn(baseStyles, variants[variant], className);
+type ButtonAsLink = CommonProps & {
+  href: string;
+  target?: string;
+  rel?: string;
+};
 
-  if (href) {
+export function Button(props: ButtonAsButton | ButtonAsLink) {
+  const { children, variant = "primary", size = "md", className } = props;
+
+  const base =
+    "inline-flex items-center justify-center rounded-xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:cursor-not-allowed disabled:opacity-50";
+
+  const variants: Record<Variants, string> = {
+    primary: "bg-brand text-white hover:bg-brand-dark",
+    secondary: "bg-ink text-white hover:opacity-90",
+    outline: "border border-ink/20 bg-white text-ink hover:bg-surface-alt",
+  };
+
+  const sizes: Record<Sizes, string> = {
+    sm: "px-3 py-2 text-sm",
+    md: "px-5 py-3 text-sm",
+    lg: "px-6 py-3 text-base",
+  };
+
+  const styles = cn(base, variants[variant], sizes[size], className);
+
+  if ("href" in props) {
+    const { href, target, rel } = props;
     return (
-      <Link href={href} className={styles}>
+      <Link href={href} className={styles} target={target} rel={rel}>
         {children}
       </Link>
     );
   }
 
+  const { type, ...rest } = props;
   return (
-    <button className={styles} {...props}>
+    <button type={type ?? "button"} className={styles} {...rest}>
       {children}
     </button>
   );
 }
+

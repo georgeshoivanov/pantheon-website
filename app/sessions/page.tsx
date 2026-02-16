@@ -1,49 +1,72 @@
-const sessions = [
-  {
-    id: "example-1",
-    title: "Pantheon Training Session",
-    level: "Intermediate",
-    location: "London",
-    day: "Monday",
-    time: "19:00–21:00",
-    sportasUrl: "https://YOUR-SPORTAS-LINK-HERE",
-  },
-];
+import { Page } from "@/components/Page";
+import { SessionCard } from "@/components/SessionCard";
+import { sessions } from "@/lib/sessions";
 
-export default function SessionsPage() {
+function Section({
+  title,
+  subtitle,
+  children,
+}: {
+  title: string;
+  subtitle: string;
+  children: React.ReactNode;
+}) {
   return (
-    <main className="mx-auto max-w-5xl p-6">
-      <h1 className="text-3xl font-bold">Sessions</h1>
-      <p className="mt-2 text-gray-600">
-        Our bookings are hosted on Sportas. Choose a session below to book.
-      </p>
-
-      <div className="mt-6 grid gap-4">
-        {sessions.map((s) => (
-          <div key={s.id} className="rounded-2xl border p-6">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <h2 className="text-xl font-semibold">{s.title}</h2>
-                <p className="mt-1 text-sm text-gray-600">
-                  {s.level} • {s.location}
-                </p>
-                <p className="mt-2 text-sm">
-                  <span className="font-medium">{s.day}</span> • {s.time}
-                </p>
-              </div>
-
-              <a
-                href={s.sportasUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex w-fit rounded-lg bg-black px-5 py-3 text-sm font-medium text-white"
-              >
-                Book on Sportas
-              </a>
-            </div>
-          </div>
-        ))}
+    <section className="space-y-4">
+      <div>
+        <h2 className="text-xl font-bold text-ink">{title}</h2>
+        <p className="mt-1 text-ink/70">{subtitle}</p>
       </div>
-    </main>
+      {children}
+    </section>
   );
 }
+
+export default function SessionsPage() {
+  const coaching = sessions.filter((s) => s.category === "coaching");
+  const games = sessions.filter((s) => s.category === "games");
+  const lva = sessions.filter((s) => s.category === "lva");
+
+  return (
+    <Page
+      title="Sessions"
+      subtitle="Choose the session type that matches your goal. Bookings for open sessions are hosted on Sportas."
+    >
+      <div className="space-y-10">
+        <Section
+          title="Coaching Sessions"
+          subtitle="Structured coaching focused on technical improvement and game-relevant reps."
+        >
+          <div className="grid gap-4">
+            {coaching.map((s) => (
+              <SessionCard key={s.id} session={s} />
+            ))}
+          </div>
+        </Section>
+
+        <Section
+          title="Intermediate Games"
+          subtitle="Competitive 6v6 games for consistent intermediate players. If unsure, message us and we’ll advise."
+        >
+          <div className="grid gap-4">
+            {games.map((s) => (
+              <SessionCard key={s.id} session={s} />
+            ))}
+          </div>
+        </Section>
+
+        <Section
+          title="LVA Squad Training"
+          subtitle="Invitation-based training for LVA competition squads. Enquire to be considered."
+        >
+          <div className="grid gap-4">
+            {lva.map((s) => (
+              <SessionCard key={s.id} session={s} />
+            ))}
+          </div>
+        </Section>
+      </div>
+    </Page>
+  );
+}
+
