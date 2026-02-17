@@ -4,9 +4,9 @@ import { Button } from "@/components/Button";
 export default function AboutPage() {
   return (
     <main>
-      {/* HERO */}
+      {/* SLIM HERO */}
       <section className="relative overflow-hidden">
-        <div className="relative h-[70vh] min-h-[520px]">
+        <div className="relative h-[38vh] min-h-[320px]">
           <Image
             src="/photos/about/hero.jpg"
             alt="Pantheon Volleyball"
@@ -16,28 +16,32 @@ export default function AboutPage() {
             sizes="100vw"
             className="object-cover"
           />
+
           {/* overlay */}
           <div className="absolute inset-0 bg-ink/55" />
+
+          {/* content */}
           <div className="absolute inset-0">
-            <div className="mx-auto flex h-full max-w-6xl items-end px-6 pb-12">
+            <div className="mx-auto flex h-full max-w-6xl items-end px-6 pb-10">
               <div className="max-w-3xl">
                 <p className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm font-semibold text-white/90">
                   About Pantheon
                 </p>
-                <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                  Raising the level of volleyball in London
+                <h1 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  Coaching-led volleyball, built for London
                 </h1>
-                <p className="mt-4 text-lg text-white/85">
-                  Through coaching that’s accessible, personal, and genuinely focused on player
-                  development. We want athletes to improve faster, enjoy the process, and feel
-                  part of a strong community.
+                <p className="mt-3 text-base text-white/85">
+                  Our mission is simple: raise the level through accessible, personal coaching and a community
+                  that keeps people improving.
                 </p>
 
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <Button href="/sessions" size="lg">
-                    View sessions
-                  </Button>
-                  <Button href="/contact" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Button href="/sessions">View sessions</Button>
+                  <Button
+                    href="/contact"
+                    variant="outline"
+                    className="border-white/30 text-white hover:bg-white/10 bg-white/20"
+                  >
                     Enquire
                   </Button>
                 </div>
@@ -49,43 +53,47 @@ export default function AboutPage() {
 
       {/* STORY + IMAGE */}
       <section className="bg-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="text-2xl font-bold text-ink">Who we are</h2>
-            <p className="mt-4 text-ink/70">
-              Pantheon is a London-based volleyball club built around high standards, community,
-              and real improvement. We run coached sessions, games, camps and tournaments designed
-              to help athletes progress — with structure, feedback, and accountability.
-            </p>
-            <p className="mt-4 text-ink/70">
-              Our sessions are designed to be accessible without sacrificing quality: clear levels,
-              purposeful reps, and coaching that meets you where you are.
-            </p>
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button href="/training" variant="outline">
-                Training levels
-              </Button>
-              <Button href="/sessions">Book via Sportas</Button>
+            {/* Text */}
+            <div>
+              <div className="mb-4 h-1 w-16 bg-brand" />
+
+              <h2 className="text-2xl font-bold text-ink">
+                Who we are
+              </h2>
+
+              <p className="mt-5 text-ink/80 leading-relaxed">
+                Pantheon Volleyball was built to raise the standard of training in London.
+                Structured sessions. Clear progression. Accountability.
+              </p>
+
+              <p className="mt-4 text-ink/70 leading-relaxed">
+                We don’t run casual open gyms. We design sessions that translate into
+                better match performance — and build a culture that serious players want to be part of.
+              </p>
+
+              <div className="mt-8">
+                <Button href="/sessions">View sessions</Button>
+              </div>
             </div>
-          </div>
 
-          <ImagePanel
-            src="/photos/about/training-1.jpg"
-            alt="Pantheon training"
-            caption="High-quality reps, clear focus, and coaching that translates to matches."
-          />
+            {/* Image */}
+            <div className="relative overflow-hidden rounded-3xl border border-ink/10 shadow-sm">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/photos/about/training-1.jpg"
+                  alt="Pantheon training"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
-
-      {/* BIG IMAGE BREAK */}
-      <FullBleedImage
-        src="/photos/about/events.jpg"
-        alt="Pantheon event"
-        eyebrow="Community & events"
-        title="Camps, tournaments, and a culture people want to be part of"
-        body="We build moments that keep the community strong — and sessions that keep players improving."
-      />
 
       {/* VALUES + IMAGE */}
       <section className="bg-surface-alt">
@@ -125,43 +133,37 @@ export default function AboutPage() {
 
       {/* FOUNDERS */}
       <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-14">
-          <h2 className="text-2xl font-bold text-ink">Founders</h2>
-          <p className="mt-2 text-ink/70">
-            Pantheon is led by coaches who care about standards, progression, and building an environment
-            players want to return to every week.
-          </p>
+        <div className="mx-auto max-w-6xl px-6 py-16">
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-ink">Leadership</h2>
+          </div>
+
+          <div className="grid gap-10 lg:grid-cols-2">
+
             <Founder
               name="George Ivanov"
               role="Co-founder • Head Coach"
               image="/photos/founders/george.jpg"
-              bio="Focused on building a high-quality training environment that translates into match performance. Passionate about raising the level of volleyball in London through structured, intentional coaching."
+              bio="Focused on building a high-performance training environment that translates directly to match play. Committed to raising the level of volleyball in London through structured, intentional coaching."
             />
+
             <Founder
               name="Chester Tang"
               role="Co-founder • Coach"
               image="/photos/founders/chester.jpg"
-              bio="Committed to making coaching accessible and personal. Focused on fundamentals, confidence, and creating a clear path for players to progress through consistent standards."
+              bio="Dedicated to making coaching accessible without lowering standards. Focused on fundamentals, confidence, and creating a clear pathway for player progression."
             />
+
           </div>
+
         </div>
       </section>
+
 
       {/* GALLERY (big tiles) */}
       <section className="bg-surface-alt">
         <div className="mx-auto max-w-6xl px-6 py-14">
-          <h2 className="text-2xl font-bold text-ink">Gallery</h2>
-          <p className="mt-2 text-ink/70">Training, games, and events.</p>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <GalleryTile src="/photos/about/hero.jpg" alt="Pantheon" className="md:col-span-2 md:row-span-2" />
-            <GalleryTile src="/photos/about/training-1.jpg" alt="Training" />
-            <GalleryTile src="/photos/about/training-2.jpg" alt="Coaching" />
-            <GalleryTile src="/photos/about/events.jpg" alt="Event" className="md:col-span-2" />
-          </div>
-
           <div className="mt-10 rounded-3xl border border-ink/10 bg-white p-8">
             <h3 className="text-xl font-bold text-ink">Want to train with us?</h3>
             <p className="mt-2 text-ink/70">

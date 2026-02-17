@@ -20,63 +20,47 @@ export default function HomePage() {
   return (
     <main>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-14 lg:grid-cols-2">
-          <div>
-            <p className="inline-flex items-center rounded-full border border-ink/10 bg-surface-alt px-3 py-1 text-sm text-ink/70">
-              London-based volleyball club
-            </p>
+      <section className="relative overflow-hidden">
+        <div className="relative h-[75vh] min-h-[560px]">
+          <Image
+            src="/photos/about/hero.jpg"
+            alt="Pantheon Volleyball"
+            fill
+            priority
+            quality={70}
+            sizes="100vw"
+            className="object-cover"
+          />
 
-            <h1 className="mt-5 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-              Train. Compete. Build your game with Pantheon.
-            </h1>
+          {/* overlay */}
+          <div className="absolute inset-0 bg-ink/55" />
 
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-ink/70">
-              Weekly sessions, camps, tournaments and a community for athletes
-              who want to improve — from beginner to advanced. Bookings are
-              hosted on Sportas.
-            </p>
+          {/* content */}
+          <div className="absolute inset-0">
+            <div className="mx-auto flex h-full max-w-6xl items-end px-6 pb-12">
+              <div className="max-w-3xl">
+                <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                  Raising the level of volleyball in London
+                </h1>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button href="/sessions" size="lg">
-                View sessions
-              </Button>
-              <Button href="/training" variant="outline" size="lg">
-                Training levels
-              </Button>
-            </div>
-
-            <div className="mt-10 grid gap-3 sm:grid-cols-3">
-              <Stat label="Levels" value="Beginner → Advanced" />
-              <Stat label="Locations" value="Across London" />
-              <Stat label="Booking" value="Via Sportas" />
-            </div>
-          </div>
-
-          {/* Image card */}
-          <div className="relative">
-            <div className="absolute -inset-3 rounded-3xl bg-cream/40 blur-2xl" />
-            <div className="relative overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-sm">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src="/hero.jpg"  /* or /hero.webp if you change later */
-                  alt="Pantheon Volleyball"
-                  fill
-                  priority
-                  quality={70}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="p-5">
-                <div className="text-sm font-semibold text-ink">
-                  What to expect
-                </div>
-                <p className="mt-1 text-sm text-ink/70">
-                  High-energy coaching, game-like reps, and a clear focus each
-                  session.
+                <p className="mt-4 text-lg text-white/85">
+                  Accessible, personal coaching. Weekly sessions, games, and events for athletes who want
+                  to improve — from beginner to advanced.
                 </p>
+
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <Button href="/sessions" size="lg">
+                    View sessions
+                  </Button>
+                  <Button
+                    href="/about"
+                    variant="outline"
+                    size="lg"
+                    className="border-white/30 text-white hover:bg-white/10 bg-white/20"
+                  >
+                    About Pantheon
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
