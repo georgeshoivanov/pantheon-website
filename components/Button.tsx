@@ -23,8 +23,12 @@ type ButtonAsLink = CommonProps & {
   rel?: string;
 };
 
+function isLink(props: ButtonAsButton | ButtonAsLink): props is ButtonAsLink {
+  return "href" in props && typeof props.href === "string";
+}
+
 export function Button(props: ButtonAsButton | ButtonAsLink) {
-  const { children, variant = "primary", size = "md", className } = props;
+  const { variant = "primary", size = "md", className } = props;
 
   const base =
     "inline-flex items-center justify-center rounded-xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:cursor-not-allowed disabled:opacity-50";
@@ -43,20 +47,18 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
 
   const styles = cn(base, variants[variant], sizes[size], className);
 
-  if ("href" in props) {
-    const { href, target, rel } = props;
+  if (isLink(props)) {
     return (
-      <Link href={href} className={styles} target={target} rel={rel}>
-        {children}
+      <Link href={props.href} className={styles} target={props.target} rel={props.rel}>
+        {props.children}
       </Link>
     );
   }
 
-  const { type, ...rest } = props;
+  const { children, type, variant: _v, size: _s, className: _c, ...rest } = props;
   return (
     <button type={type ?? "button"} className={styles} {...rest}>
       {children}
     </button>
   );
 }
-
