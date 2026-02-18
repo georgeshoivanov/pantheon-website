@@ -144,7 +144,7 @@ export default function AboutPage() {
             <Founder
               name="George Ivanov"
               role="Co-founder • Head Coach"
-              image="/photos/founders/george.webp"
+              image="/photos/founders/george1.webp"
               bio="George’s journey began in London grassroots volleyball. Lacking a clear high-performance pathway, he built his own. 
 
 Years of self-development have elevated him to the senior national squad, where he competes among the country’s best. His work at Pantheon is driven by the belief that accessible, high-quality coaching can raise the standard of volleyball across London."
