@@ -23,7 +23,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="relative h-[75vh] min-h-[560px]">
           <Image
-            src="/photos/about/hero.jpg"
+            src="/photos/home/hero.webp"
             alt="Pantheon Volleyball"
             fill
             priority

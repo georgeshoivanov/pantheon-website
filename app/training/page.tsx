@@ -5,22 +5,22 @@ import { Page } from "@/components/Page";
 const levels = [
   {
     title: "Mixed Ability",
-    desc: "Build fundamentals, confidence, and a clear understanding of team structure.",
-    src: "/photos/training/levels/beginner.jpg",
+    desc: "Build fundamentals, confidence, game experience in a supportive environment.",
+    src: "/photos/training/levels/beginner.webp",
     session: "Level-Up Series",
     href: "/sessions",
   },
   {
     title: "Intermediate",
     desc: "Game-speed reps, structure, and tactical awareness in a competitive environment.",
-    src: "/photos/training/levels/intermediate.jpg",
+    src: "/photos/training/levels/intermediate.webp",
     session: "Intermediate Masterclass",
     href: "/sessions",
   },
   {
     title: "Advanced",
-    desc: "High intensity. Match-relevant training. Accountability and standards.",
-    src: "/photos/training/levels/advanced.jpg",
+    desc: "High intensity. Match-relevant training. Competitive matches in London League.",
+    src: "/photos/training/levels/advanced.webp",
     session: "Enquire",
     href: "/contact"
   },

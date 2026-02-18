@@ -8,7 +8,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden">
         <div className="relative h-[38vh] min-h-[320px]">
           <Image
-            src="/photos/about/hero.jpg"
+            src="/photos/home/hero.webp"
             alt="Pantheon Volleyball"
             fill
             priority
@@ -31,7 +31,7 @@ export default function AboutPage() {
                   Coaching-led volleyball, built for London
                 </h1>
                 <p className="mt-3 text-base text-white/85">
-                  Our mission is simple: raise the level through accessible, personal coaching and a community
+                  We make quality, personal coaching assessible with a community
                   that keeps people improving.
                 </p>
 
@@ -65,13 +65,13 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-5 text-ink/80 leading-relaxed">
-                Pantheon Volleyball was built to raise the standard of training in London.
-                Structured sessions. Clear progression. Accountability.
+                Pantheon Volleyball was built to raise the standard of training in London through
+                structured sessions and clear progression.
               </p>
 
               <p className="mt-4 text-ink/70 leading-relaxed">
-                We don’t run casual open gyms. We design sessions that translate into
-                better match performance — and build a culture that serious players want to be part of.
+                We design sessions that develop players to the next level, supporting players through their volleyball journey.
+                
               </p>
 
               <div className="mt-8">
@@ -83,7 +83,7 @@ export default function AboutPage() {
             <div className="relative overflow-hidden rounded-3xl border border-ink/10 shadow-sm">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="/photos/about/training-1.jpg"
+                  src="/photos/about/training-1.webp"
                   alt="Pantheon training"
                   fill
                   className="object-cover"
@@ -99,9 +99,9 @@ export default function AboutPage() {
       <section className="bg-surface-alt">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 lg:grid-cols-2 lg:items-center">
           <ImagePanel
-            src="/photos/about/training-2.jpg"
+            src="/photos/about/training-2.webp"
             alt="Pantheon coaching"
-            caption="Accessible doesn’t mean casual — standards matter."
+            caption="Accessible, quality coaching designed with you in mind."
           />
 
           <div>
@@ -144,16 +144,19 @@ export default function AboutPage() {
             <Founder
               name="George Ivanov"
               role="Co-founder • Head Coach"
-              image="/photos/founders/george.jpg"
-              bio="Focused on building a high-performance training environment that translates directly to match play. Committed to raising the level of volleyball in London through structured, intentional coaching."
+              image="/photos/founders/george.webp"
+              bio="George’s journey began in London grassroots volleyball. Lacking a clear high-performance pathway, he built his own. 
+
+Years of self-development have elevated him to the senior national squad, where he competes among the country’s best. His work at Pantheon is driven by the belief that accessible, high-quality coaching can raise the standard of volleyball across London."
             />
 
             <Founder
               name="Chester Tang"
               role="Co-founder • Coach"
-              image="/photos/founders/chester.jpg"
-              bio="Dedicated to making coaching accessible without lowering standards. Focused on fundamentals, confidence, and creating a clear pathway for player progression."
-            />
+              image="/photos/founders/chester.webp"
+              bio="Chester fell in love with volleyball at 18. He knows the joy of self-improvement, and is passionate about creating an inclusive and welcoming environment where players of all levels feel valued. He believes volleyball is a space where people improve, compete, and genuinely have fun.
+
+Chester brings a strong focus on individual learning to every session." />
 
           </div>
 
@@ -251,17 +254,37 @@ function Founder({
 }) {
   return (
     <div className="overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-sm">
-      <div className="relative aspect-[16/10]">
-        <Image src={image} alt={name} fill quality={70} sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
-      </div>
-      <div className="p-6">
-        <div className="text-lg font-semibold text-ink">{name}</div>
-        <div className="text-sm text-ink/60">{role}</div>
-        <p className="mt-3 text-ink/70">{bio}</p>
+      <div className="relative aspect-[3/4]">
+        <Image
+          src={image}
+          alt={name}
+          fill
+          quality={70}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover"
+        />
+
+        {/* Keep the image crisp at the top, guarantee readability at the bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-[32%] bg-ink/90" />
+        <div className="absolute inset-x-0 bottom-[32%] h-28 bg-gradient-to-t from-ink/90 to-transparent" />
+
+        {/* Optional: slight vignette */}
+        <div className="absolute inset-0 bg-black/5" />
+
+        <div className="absolute inset-x-0 bottom-0 p-6">
+          <div className="max-w-[46ch]">
+            <div className="text-xl font-semibold text-white">{name}</div>
+            <div className="mt-0.5 text-sm text-white/80">{role}</div>
+            <p className="mt-3 text-[15px] leading-relaxed tracking-[0.01em] text-white/90">
+              {bio}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+
 
 function GalleryTile({
   src,

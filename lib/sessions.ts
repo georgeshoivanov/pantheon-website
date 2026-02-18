@@ -23,8 +23,9 @@ export const sessions: Session[] = [
     day: "Friday",
     time: "19:00–21:00",
     audience: "Mixed",
+    location: "Downside Youth Club",
     description:
-      "Coached session focused on skill development, structure, and game-relevant reps.",
+      "Coached session focused on advanced skill development, structure, and game-relevant reps.",
     sportasUrl: "https://sportas.co.uk/account/pantheonvolley",
   },
   {
@@ -35,6 +36,7 @@ export const sessions: Session[] = [
     day: "Saturday",
     time: "16:30–18:30",
     audience: "Mixed",
+    location: "In2Sports Canary Wharf",
     description:
       "Progressive coaching for mixed ability athletes—build fundamentals and level up fast.",
     sportasUrl: "https://sportas.co.uk/account/pantheonvolley",
@@ -49,6 +51,7 @@ export const sessions: Session[] = [
     day: "Wednesday",
     time: "18:00–20:00",
     audience: "Mixed",
+    location: "Leyton Score Leisure Centre",
     description:
       "Competitive 6v6 games. Best if you can pass, set and serve consistently in a team system.",
     sportasUrl: "https://sportas.co.uk/account/pantheonvolley",
@@ -61,6 +64,7 @@ export const sessions: Session[] = [
     day: "Friday",
     time: "18:00–20:00",
     audience: "Mixed",
+    location: "Leyton Score Leisure Centre",
     description:
       "Fast-paced games for intermediate players—great for competitive reps and rhythm.",
     sportasUrl: "https://sportas.co.uk/account/pantheonvolley",
@@ -73,6 +77,7 @@ export const sessions: Session[] = [
     day: "Sunday",
     time: "12:00–14:00",
     audience: "Mixed",
+    location: "Leyton Score Leisure Centre",
     description:
       "Weekend games session—high volume game reps for consistent intermediate players.",
     sportasUrl: "https://sportas.co.uk/account/pantheonvolley",

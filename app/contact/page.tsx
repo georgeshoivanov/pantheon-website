@@ -55,13 +55,13 @@ function mailto(subject: string) {
 export default function ContactPage() {
   return (
     <Page
-      title="Contact"
+      title="Contact Us!"
       subtitle="Send us a message — we’ll get back to you and point you to the right next step."
     >
       {/* Single-channel strip */}
       <section className="rounded-3xl border border-ink/10 bg-cream/40 p-8">
         <div className="mb-3 h-1 w-16 bg-brand" />
-        <h2 className="text-xl font-bold text-ink">Fastest way to reach us</h2>
+        <h2 className="text-xl font-bold text-ink">How to reach us</h2>
 
         <div className="mt-4 grid gap-4 lg:grid-cols-3">
           <div className="rounded-2xl border border-ink/10 bg-white p-6 shadow-sm">
