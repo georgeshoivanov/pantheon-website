@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-ink/10 bg-ink text-cream">
+    <footer className="border-t border-cream/10 bg-ink-bg text-cream">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-10 sm:grid-cols-3">
         <div>
           <div className="text-lg font-semibold">Pantheon Volleyball</div>
@@ -28,7 +28,7 @@ export function Footer() {
           </p>
           <Link
             href="/sessions"
-            className="mt-4 inline-flex rounded-xl bg-cream px-4 py-2 text-sm font-semibold text-ink hover:opacity-95"
+            className="mt-4 inline-flex rounded-xl bg-cream px-4 py-2 text-sm font-semibold text-ink-bg hover:opacity-95"
           >
             View sessions
           </Link>

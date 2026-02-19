@@ -34,10 +34,10 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     "inline-flex items-center justify-center rounded-xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:cursor-not-allowed disabled:opacity-50";
 
   const variants: Record<Variants, string> = {
-    primary: "bg-brand text-white hover:bg-brand-dark",
-    secondary: "bg-ink text-white hover:opacity-90",
-    outline: "border border-ink/20 bg-white text-ink hover:bg-surface-alt",
-  };
+  primary: "bg-brand text-white hover:bg-brand-dark",
+  secondary: "bg-ink text-white hover:opacity-90",
+  outline: "border border-ink/20 bg-surface text-ink hover:bg-surface-alt",
+};
 
   const sizes: Record<Sizes, string> = {
     sm: "px-3 py-2 text-sm",

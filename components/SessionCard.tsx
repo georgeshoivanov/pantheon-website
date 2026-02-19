@@ -7,14 +7,14 @@ const categoryMeta: Record<
 > = {
   coaching: { label: "Coaching", badgeClass: "bg-brand/10 text-brand border-brand/20" },
   games: { label: "Games", badgeClass: "bg-ink/5 text-ink border-ink/10" },
-  lva: { label: "LVA Squad", badgeClass: "bg-cream text-ink border-ink/10" },
+  lva: { label: "LVA Squad", badgeClass: "bg-cream text-ink-bg border-ink/10" },
 };
 
 export function SessionCard({ session }: { session: Session }) {
   const meta = categoryMeta[session.category];
 
   return (
-    <div className="rounded-2xl border border-ink/10 bg-white p-6 shadow-sm">
+    <div className="rounded-2xl border border-ink/10 bg-surface p-6 shadow-sm">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
@@ -22,12 +22,12 @@ export function SessionCard({ session }: { session: Session }) {
               {meta.label}
             </span>
 
-            <span className="inline-flex items-center rounded-full border border-ink/10 bg-white px-3 py-1 text-xs font-semibold text-ink/80">
+            <span className="inline-flex items-center rounded-full border border-ink/10 bg-surface-alt px-3 py-1 text-xs font-semibold text-ink/80">
               {session.levelLabel}
             </span>
 
             {session.audience ? (
-              <span className="inline-flex items-center rounded-full border border-ink/10 bg-white px-3 py-1 text-xs font-semibold text-ink/70">
+              <span className="inline-flex items-center rounded-full border border-ink/10 bg-surface-alt px-3 py-1 text-xs font-semibold text-ink/70">
                 {session.audience}
               </span>
             ) : null}

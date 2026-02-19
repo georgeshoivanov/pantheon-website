@@ -1,8 +1,25 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand: #008977;
+  --brand-dark: #006f61;
+  --cream: #eee9bf;
+  --ink: #0B2E33;
+  --ink-bg: #0B2E33; 
+  --surface: #ffffff;
+  --surface-alt: #f8faf9;
+}
+
+.dark {
+  --background: #0a1f22;
+  --foreground: #ededed;
+  --ink: #ededed;
+  --ink-bg: #051214;
+  --surface: #0d272b;
+  --surface-alt: #112e33;
 }
 
 @theme inline {
@@ -10,34 +27,20 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-brand: #008977;
-  --color-brand-dark: #006f61;
-  --color-cream: #eee9bf;
-  --color-ink: #0B2E33;
-  --color-surface: #ffffff;
-  --color-surface-alt: #f8faf9;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-:root {
-  --brand-accent: #eee9bf;        /* pick your Pantheon primary */
-  --brand: #008977; /* pick accent (blue example) */
-  --surface: #ffffff;
-  --muted: #f4f4f5;
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-ink-bg: var(--ink-bg);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
 }
+
 html {
   scrollbar-gutter: stable;
 }
-
-
-
